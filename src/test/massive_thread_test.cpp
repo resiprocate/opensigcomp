@@ -87,7 +87,7 @@ static void *threadBody(void *arg)
 
   int i;
 
-  compartmentId.threadNum = ((int)arg);
+  compartmentId.threadNum = reinterpret_cast<uintptr_t>(arg);
   compartmentId.sequence = 0;
 
   while (running)
@@ -120,7 +120,7 @@ int
 main(int argc, char **argv)
 {
   pthread_t threads[MAXTHREADS];
-  int i;
+  uintptr_t i;
   int status;
   int duration = 20;
   int pruneTime = 2;

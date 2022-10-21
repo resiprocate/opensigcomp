@@ -32,7 +32,7 @@
 class TestRWLock : public osc::ReadWriteLockable {};
 
 static TestRWLock *rwlock;
-static int value;
+static uintptr_t value;
 
 static void *increment(void *arg)
 {
@@ -45,7 +45,7 @@ static void *increment(void *arg)
 static void *check(void *arg)
 {
   rwlock->readLock();
-  int val = value;
+  uintptr_t val = value;
   rwlock->unlock();
   return (void *)(val);
 }
@@ -73,7 +73,7 @@ bool test_osc_ReadWriteLockable()
   TEST_ASSERT_EQUAL(value, 1);
   TEST_ASSERT_EQUAL(status, 0);
   status = pthread_join(t1, &result);
-  TEST_ASSERT_EQUAL(((int)(result)),0);
+  TEST_ASSERT_EQUAL(reinterpret_cast<uintptr_t>(result),0);
 
   // Check precidence of read versus write lock
   rwlock->writeLock();
@@ -90,12 +90,12 @@ bool test_osc_ReadWriteLockable()
   sched_yield();
   usleep(20);
   status = pthread_join(t1, &result);
-  TEST_ASSERT_EQUAL(((int)(result)),0);
+  TEST_ASSERT_EQUAL(reinterpret_cast<uintptr_t>(result),0);
   TEST_ASSERT_EQUAL(value, 2);
   status = pthread_join(t2, &result);
-  TEST_ASSERT_EQUAL(((int)(result)),2);
+  TEST_ASSERT_EQUAL(reinterpret_cast<uintptr_t>(result),2);
   status = pthread_join(t3, &result);
-  TEST_ASSERT_EQUAL(((int)(result)),2);
+  TEST_ASSERT_EQUAL(reinterpret_cast<uintptr_t>(result),2);
 
   delete rwlock;
   return true;
