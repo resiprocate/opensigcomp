@@ -29,22 +29,22 @@ OBJS := $(filter-out massive_thread_test.o object_size.o speed_test.o\
           $(patsubst %.cpp, %.o, $(SRC)))
 
 unit-test: $(OBJS) $(LIBS)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CXX) -o $@ $^ $(LDFLAGS)
 
 speed-test: speed_test.o $(LIBS)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CXX) -o $@ $^ $(LDFLAGS)
 
 sha1-speed-test: sha1_speed_test.o $(LIBS)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CXX) -o $@ $^ $(LDFLAGS)
 
 object-size: object_size.o $(LIBS)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CXX) -o $@ $^ $(LDFLAGS)
 
 pcap-read: pcap_read.o $(LIBS)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CXX) -o $@ $^ $(LDFLAGS)
 
 massive-thread-test: massive_thread_test.o $(LIBS)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	$(CXX) -o $@ $^ $(LDFLAGS)
 
 
 ifneq ($(MAKECMDGOALS),clean)
