@@ -21,6 +21,7 @@
    To discuss alternate licensing terms, contact info@estacado.net
  *********************************************************************** */
 
+#include <fstream>
 #include <iostream>
 #include <stdio.h>
 #include <unistd.h>
@@ -31,9 +32,9 @@
 
 int main(int argc, char **argv)
 {
-  if (argc != 2)
+  if (argc < 2 || argc > 3)
   {
-    std::cerr << "Usage: " << argv[0] << " filename" << std::endl;
+    std::cerr << "Usage: " << argv[0] << " filename [filename]" << std::endl;
     return -1;
   }
 
@@ -51,7 +52,15 @@ int main(int argc, char **argv)
 
   osc::Disassembler disassembler(buffer);
 
-  disassembler.disassemble(std::cout);
+  if(argc == 2)
+  {
+    disassembler.disassemble(std::cout);
+  }
+  else
+  {
+    std::ofstream ofs(argv[2], std::ofstream::out);
+    disassembler.disassemble(ofs);
+  }
 
   return 0;
 }
