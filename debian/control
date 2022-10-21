@@ -1,0 +1,25 @@
+Source: opensigcomp
+Section: devel
+Priority: optional
+Maintainer: Daniel Pocock <daniel@pocock.pro>
+Build-Depends: debhelper (>= 10), perl, cmake
+Standards-Version: 4.0.0
+Vcs-Git: https://github.com/resiprocate/opensigcomp
+Vcs-Browser: https://github.com/resiprocate/opensigcomp
+Homepage: https://opensigcomp.org
+
+Package: libopensigcomp0
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: C++ library for SigComp
+ GPL-2 implementation of Signaling Compression (SigComp) RFC 3320.
+
+Package: libopensigcomp-dev
+Section: libdevel
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}, libopensigcomp0 (= ${binary:Version})
+Description: C++ library for SigComp (development headers)
+ GPL-2 implementation of Signaling Compression (SigComp) RFC 3320.

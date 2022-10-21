@@ -1,0 +1,3 @@
+usr/include/osc/*
+usr/lib/*/lib*.so
+usr/lib/*/opensigcomp/*.cmake

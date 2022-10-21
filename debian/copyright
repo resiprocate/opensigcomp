@@ -1,0 +1,18 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: opensigcomp
+Upstream-Contact: info@estacado.net
+Source: https://www.opensigcomp.org/download.html
+
+Files: *
+Copyright: 2006-2007, Estacado Systems
+           2022, Daniel Pocock https://danielpocock.com
+License: GPL-2
+
+Files: debian/*
+Copyright: 2022, Daniel Pocock
+License: GPL-2
+
+License: GPL-2
+ On Debian systems, the full text of the GPL is available at
+ /usr/share/common-licenses/GPL-2
+
