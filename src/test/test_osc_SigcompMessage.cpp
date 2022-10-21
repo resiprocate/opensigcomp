@@ -21,6 +21,7 @@
    To discuss alternate licensing terms, contact info@estacado.net
  *********************************************************************** */
 
+#include <cstring>
 #include <iostream>
 #include "SigcompMessage.h"
 #include "TestList.h"

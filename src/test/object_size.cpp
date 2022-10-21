@@ -22,6 +22,7 @@
  *********************************************************************** */
 
 #include <iostream>
+#include <sstream>
 
 /*
   This file does a wide variety of truly evil things. Don't
