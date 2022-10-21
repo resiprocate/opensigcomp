@@ -130,7 +130,7 @@ osc::TestList::operator=(TestList const &r)
 bool
 osc::TestList::addTest(test_signature_t testFunction, const std::string &name)
 {
-  tests.push_back(std::make_pair<test_signature_t,std::string>
+  tests.push_back(std::make_pair
                                 (testFunction, name));
   return true;
 }
