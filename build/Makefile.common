@@ -13,7 +13,7 @@ INSTALL_INC  := $(INSTALL_ROOT)/include/osc
 COPY         := cp
 MKDIR        := mkdir -p
 
-CPPFLAGS += -Wall -Werror
+CPPFLAGS += -Wall
 CPPFLAGS += -fno-rtti
 
 ifeq ($(POSIX_LOCKING),yes)
