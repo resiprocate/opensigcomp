@@ -1,7 +1,9 @@
 #!/usr/bin/make -f
 
+# use --no-parallel until we resolve issues with files generated
+# during the build process
 %:
-	dh $@ --parallel
+	dh $@ --no-parallel
 
 # one of the unit tests is failing
 override_dh_auto_test:
